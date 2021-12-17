@@ -13,7 +13,8 @@ class Home extends BaseController
     public function index()
     {
         //return view('welcome_message');
-        echo 'Database file permissions: ' . xmlDb::getDatabasePerms('database');
+        //echo 'Database file permissions: ' . xmlDb::getDatabasePerms('database');
+        echo 'Id User = '.session()->get('id') . 'Role = ' . session('role');
     }
     /**
      * Lấy toàn bộ các bảng
@@ -35,6 +36,27 @@ class Home extends BaseController
         $this->db->addTable('ChiTietHoaDon');
         $this->db->addTable('SanPham');
         $this->db->addTable('DanhMuc');
+    }
+    /**
+     * Tạo mới role Admin, employee, và customer
+     */
+    public function seedData()
+    {
+        $this->db->in('Role')->insert([
+            'id' => 1,
+            'Ten' => 'Admin',
+        ]);
+        $this->db->in('Role')->insert([
+            'id' => $this->db->lastId() + 1,
+            'Ten' => 'Employee',
+        ]);
+        $this->db->in('Role')->insert([
+            'id' => $this->db->lastId() + 1,
+            'Ten' => 'Customer',
+        ]);
+
+        //---Bảng NhanVien---//
+
     }
 
 
@@ -74,5 +96,19 @@ class Home extends BaseController
     public function example()
     {
         return view('example_msg', ["message" => "hello"]);
+    }
+
+    public function createAccount()
+    {
+        $this->db->in('TaiKhoan')->insert([
+            'id'        => $this->db->lastId() ? $this->db->lastId() + 1 : 1,
+            'UserName'  => 'admin',
+            'PassWord'  => md5('123456'),
+            'Ten'       => 'Admin',
+            'Email'     => 'admin@team.com',
+            'DiaChi'    => 'null',
+            'DienThoai' => '012345678',
+            'id_role'   => 1
+        ]);
     }
 }
