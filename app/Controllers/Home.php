@@ -7,11 +7,36 @@ use App\Libraries\xmlDb;
 
 class Home extends BaseController
 {
+    /**
+     * Xem quyền truy cập của file xml db
+     */
     public function index()
     {
         //return view('welcome_message');
         echo 'Database file permissions: ' . xmlDb::getDatabasePerms('database');
     }
+    /**
+     * Lấy toàn bộ các bảng
+     */
+    public function getAllTable()
+    {
+        $tables = $this->db->getTables();
+        print_r($tables);
+    }
+    /**
+     * Tạo mới các bảng chỉ chạy lần đầu tiên
+     */
+    public function createTables()
+    {
+        $this->db->addTable('Role');
+        $this->db->addTable('NhanVien');
+        $this->db->addTable('TaiKhoan');
+        $this->db->addTable('HoaDon');
+        $this->db->addTable('ChiTietHoaDon');
+        $this->db->addTable('SanPham');
+        $this->db->addTable('DanhMuc');
+    }
+
 
     public function show()
     {
@@ -36,15 +61,6 @@ class Home extends BaseController
             echo $row->description . '<br />';
             echo $row->price . '<br />';
         }
-    }
-
-    public function getAllTable()
-    {
-        // get tables names
-        $tables = $this->db->getTables();
-
-        // print table names
-        print_r($tables);
     }
 
     public function getAll()
