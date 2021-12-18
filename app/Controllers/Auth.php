@@ -21,10 +21,11 @@ class Auth extends BaseController
                     'msg' => $msg
                 ]);
             } else {
+                //Check user exist
                 $this->db->from('TaiKhoan')->select('id, Email, UserName')->where('Email', $this->request->getVar('email'))->orWhere('UserName', $this->request->getVar('username'));
 
                 $row = $this->db->getRow();
-
+                //If not exist
                 if (!$row) {
                     $this->db->in('TaiKhoan')->insert([
                         'id'        => $this->db->lastId() ? $this->db->lastId() + 1 : 1,
@@ -34,7 +35,7 @@ class Auth extends BaseController
                         'Email'     => $this->request->getVar('email'),
                         'DiaChi'    => 'null',
                         'DienThoai' => 'null',
-                        'id_role'   => 3
+                        'id_role'   => 2
                     ]);
                     $msg = "Tạo tài khoản thành công!";
                 } else {
@@ -103,6 +104,6 @@ class Auth extends BaseController
     public function logout()
     {
       session()->destroy();
-      return redirect()->to('auth/login');
+      return redirect()->to(base_url('auth/login'));
     }
 }

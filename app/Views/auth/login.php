@@ -49,7 +49,7 @@
 
         <p><a href="#">I forgot my password</a></p>
 
-        <a href="auth/register" class="text-center">Register a new membership</a>
+        <a href="/auth/register" class="text-center">Register a new membership</a>
       </div>
     </form>
 

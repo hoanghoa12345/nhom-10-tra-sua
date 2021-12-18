@@ -6,12 +6,12 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Trang chủ | Admin
+      Trang chủ | <?= session('name') ?>
       <small>Control panel</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Blank page</li>
+      <li class="active">Trang chủ</li>
     </ol>
   </section>
 
