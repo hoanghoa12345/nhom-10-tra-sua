@@ -16,7 +16,7 @@ class Admin extends BaseController
   }
   public function danhmuc()
   {
-    return view('admin/index');
+    return view('admin/danhmuc');
   }
   public function donhang()
   {
