@@ -27,7 +27,7 @@
   <header class="header">
     <a href="/index.html" class="logo">
       <!-- Add the class icon to your logo image or logo icon to add the margining -->
-      AdminLTE
+      Quản lý quán trà sữa
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -44,15 +44,14 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="glyphicon glyphicon-user"></i>
-              <span>Jane Doe <i class="caret"></i></span>
+              <span><?php echo session('name') ?> <i class="caret"></i></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header bg-light-blue">
                 <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
                 <p>
-                  Jane Doe - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  <?php echo session('name') ?>
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -81,7 +80,7 @@
             <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
           </div>
           <div class="pull-left info">
-            <p>Hello, Jane</p>
+            <p>Hello, <?php echo session('name') ?></p>
 
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>

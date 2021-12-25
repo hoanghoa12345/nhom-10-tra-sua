@@ -16,8 +16,24 @@ class Admin extends BaseController
   }
   public function danhmuc()
   {
-    return view('admin/danhmuc');
+    $rows = $this->db->from('DanhMuc')->select('id,TenDanhMuc,MoTa')->getAll();
+    return view('admin/danhmuc',["rows" => $rows]);
   }
+
+  public function taodanhmuc()
+  {
+    if($this->request->getMethod() == 'post') {
+      
+      $this->db->in('DanhMuc')->insert([
+        'id' => $this->db->lastId() ? $this->db->lastId() + 1 : 1,
+        'TenDanhMuc' => $this->request->getVar('tendanhmuc'),
+        'MoTa' => $this->request->getVar('mota')
+      ]);
+    }
+    return view('admin/taodanhmuc');
+    
+  }
+
   public function donhang()
   {
     return view('admin/index');
