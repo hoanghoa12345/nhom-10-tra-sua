@@ -1,1 +1,1 @@
-a:3:{i:0;O:8:"stdClass":3:{s:2:"id";s:1:"1";s:10:"TenDanhMuc";s:7:"tra sua";s:4:"MoTa";s:7:"tra sua";}i:1;O:8:"stdClass":3:{s:2:"id";s:1:"2";s:10:"TenDanhMuc";s:10:"Trà sữa";s:4:"MoTa";s:10:"Trà sữa";}i:2;O:8:"stdClass":3:{s:2:"id";s:1:"3";s:10:"TenDanhMuc";s:8:"Cà phê";s:4:"MoTa";s:8:"Cà phê";}}
+a:2:{i:0;O:8:"stdClass":3:{s:2:"id";s:1:"3";s:10:"TenDanhMuc";s:8:"Cà phê";s:4:"MoTa";s:8:"Cà phê";}i:1;O:8:"stdClass":3:{s:2:"id";s:1:"2";s:10:"TenDanhMuc";s:10:"Trà sữa";s:4:"MoTa";s:10:"Trà sữa";}}

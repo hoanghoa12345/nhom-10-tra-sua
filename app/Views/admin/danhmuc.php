@@ -41,8 +41,28 @@
                                     <td><?= $row->TenDanhMuc ?></td>
                                     <td><?= $row->MoTa ?></td>
                                     <td>
-                                        <div class="btn-group"><button class="btn btn-warning"><i class="fa fa-pencil"></i></button></div>
-                                        <div class="btn-group"><button class="btn btn-danger"><i class="fa fa-trash-o"></i></button></div>
+                                        <div class="btn-group"><button class="btn btn-warning" onclick="window.location.replace('/admin/suadanhmuc/<?=$row->id?>');"><i class="fa fa-pencil"></i></button></div>
+                                        <div class="btn-group"><button class="btn btn-danger" data-toggle="modal" data-target="#delModal"><i class="fa fa-trash-o"></i></button></div>
+
+                                        <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <h4 class="modal-title" id="modalLabel">Xóa danh mục</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Xóa <?=$row->TenDanhMuc?>?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" onclick="window.location.replace('/admin/xoadanhmuc/<?=$row->id?>');" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -53,6 +73,8 @@
         </div>
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
+
+
 
 
 <?= $this->endSection() ?>

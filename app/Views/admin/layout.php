@@ -49,7 +49,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header bg-light-blue">
-                <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
+                <img src="/img/avatar5.png" class="img-circle" alt="User Image" />
                 <p>
                   <?php echo session('name') ?>
                 </p>
@@ -96,28 +96,7 @@
         </form>
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-          <li class="active">
-            <a href="/admin/index">
-              <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="/admin/sanpham">
-              <i class="fa fa-list-alt"></i> <span>Sản phẩm</span>
-            </a>
-          </li>
-          <li>
-            <a href="/admin/danhmuc">
-              <i class="fa fa-bookmark"></i> <span>Danh mục</span>
-            </a>
-          </li>
-          <li>
-            <a href="/admin/donhang">
-              <i class="fa fa-inbox"></i> <span>Đơn hàng</span>
-            </a>
-          </li>
-        </ul>
+        <?= $this->include('admin/sidebar_menu') ?>
       </section>
       <!-- /.sidebar -->
     </aside>
