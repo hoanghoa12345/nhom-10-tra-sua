@@ -34,6 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('admin/xoadanhmuc/(:num)', 'Admin::xoadanhmuc/$1');
 $routes->get('admin/suadanhmuc/(:num)', 'Admin::suadanhmuc/$1');
+$routes->get('admin/xoasanpham/(:num)', 'Admin::xoasanpham/$1');
+$routes->get('admin/suasanpham/(:num)', 'Admin::suasanpham/$1');
 
 /*
  * --------------------------------------------------------------------

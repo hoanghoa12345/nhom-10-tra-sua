@@ -12,11 +12,46 @@ class Admin extends BaseController
     session()->set('active_menu',1);
     return view('admin/index');
   }
+  
   public function sanpham()
   {
-    session()->remove('active_menu');
-    session()->set('active_menu',2);
-    return view('admin/index');
+     session()->remove('active_menu');
+     session()->set('active_menu',2);
+     $rows = $this->db->from('SanPham')->select('id,id_cat,TenSanPham,Gia,MoTa')->getAll();
+     return view('admin/sanpham',["rows" =>$rows]);
+  }
+  public function taosanpham(){
+    if ($this->request->getMethod() == 'post') {
+
+      $this->db->in('SanPham')->insert([
+        'id' => $this->db->lastId() ? $this->db->lastId() + 1 : 1,
+        'id_cat' => $this->request->getVar('id_cat'),
+        'TenSanPham' => $this->request->getVar('tensanpham'),
+        'Gia' => $this->request->getVar('gia'),
+        'MoTa' => $this->request->getVar('mota')
+      ]);
+    }
+    return view('admin/taosanpham');
+  }
+  public function suasanpham($id){
+    $this->db->from('SanPham')->select('id, id_cat,TenSanPham,Gia, MoTa')->where('id',$id);
+
+    $row = $this->db->getRow();
+    if ($this->request->getMethod() == 'post') {
+      $this->db->in('SanPham')
+        ->where('id', $id)
+        ->bind('id_cat', $this->request->getVar('id_cat'))
+        ->bind('TenSanPham', $this->request->getVar('tensanpham'))
+        ->bind('Gia', $this->request->getVar('gia'))
+        ->bind('MoTa', $this->request->getVar('mota'))
+        ->update();
+        return redirect()->to(base_url('admin/sanpham'));
+    }
+    return view('admin/suasanpham',['row' => $row]);
+  }
+  public function xoasanpham($id){
+    $this->db->from('SanPham')->where('id', $id)->delete();
+    return redirect()->to(base_url('admin/sanpham'));
   }
   public function danhmuc()
   {
@@ -36,14 +71,13 @@ class Admin extends BaseController
         'MoTa' => $this->request->getVar('mota')
       ]);
     }
-    return view('admin/danhmuc');
+    return view('admin/taodanhmuc');
   }
 
   public function suadanhmuc($id)
   {
     $this->db->from('DanhMuc')->select('id, TenDanhMuc, MoTa')->where('id',$id);
 
-    // get row
     $row = $this->db->getRow();
     if ($this->request->getMethod() == 'post') {
       $this->db->in('DanhMuc')
