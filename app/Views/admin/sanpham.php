@@ -34,6 +34,7 @@
                                 <th>Tên sản phẩm</th>
                                 <th>Giá</th>
                                 <th>Mô tả</th>
+                                <th>Hình ảnh</th>
                                 <th>Thao tác</th>
                             </tr>
 
@@ -45,6 +46,7 @@
                                         <td><?= $row->TenSanPham ?></td>
                                         <td><?= $row->Gia ?></td>
                                         <td><?= $row->MoTa ?></td>
+                                        <td><img src="/uploads/<?=$row->HinhAnh?>" alt="" height="100"></td>
                                         <td>
                                             <div class="btn-group"><button class="btn btn-warning" onclick="window.location.replace('/admin/suasanpham/<?= $row->id ?>');"><i class="fa fa-pencil"></i></button></div>
                                             <div class="btn-group"><button class="btn btn-danger" data-toggle="modal" data-target="#delModal"><i class="fa fa-trash-o"></i></button></div>

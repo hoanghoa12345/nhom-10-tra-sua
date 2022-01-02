@@ -6,7 +6,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Tạo mới sản phẩm
+      Sửa sản phẩm #<?=$row->id?>
       <small>Control panel</small>
     </h1>
     <ol class="breadcrumb">
@@ -23,26 +23,31 @@
 
         <div class="box box-primary">
           <div class="box-header">
-            <h3 class="box-title">Tạo mới sản phẩm</h3>
+            <h3 class="box-title">Sửa sản phẩm</h3>
           </div><!-- /.box-header -->
           <!-- form start -->
-          <form role="form" action="/admin/suasanpham/<?=$row->id?>" method="post">
+          <form role="form" action="/admin/suasanpham/<?= $row->id ?>" method="post" enctype="multipart/form-data">
             <div class="box-body">
               <div class="form-group">
                 <label for="id_cat">ID danh mục</label>
-                <input type="text" class="form-control" name="id_cat" id="id_cat" placeholder="Nhập tên ID danh mục" value="<?= $row->id_cat?>">
+                <input type="text" class="form-control" name="id_cat" id="id_cat" placeholder="Nhập tên ID danh mục" value="<?= $row->id_cat ?>">
               </div>
               <div class="form-group">
                 <label for="tensanpham">Tên sản phẩm</label>
-                <input type="text" class="form-control" name="tensanpham" id="tensanpham" placeholder="Nhập tên sản phẩm" value="<?= $row->TenSanPham?>">
+                <input type="text" class="form-control" name="tensanpham" id="tensanpham" placeholder="Nhập tên sản phẩm" value="<?= $row->TenSanPham ?>">
               </div>
               <div class="form-group">
                 <label for="gia">Giá</label>
-                <input type="text" class="form-control" name="gia" id="gia" placeholder="Nhập tên danh mục" value="<?= $row->Gia?>">
+                <input type="text" class="form-control" name="gia" id="gia" placeholder="Nhập tên danh mục" value="<?= $row->Gia ?>">
               </div>
               <div class="form-group">
                 <label for="mota">Mô tả</label>
-                <input type="text" class="form-control" name="mota" id="mota" placeholder="Mô tả" value="<?= $row->MoTa?>">
+                <input type="text" class="form-control" name="mota" id="mota" placeholder="Mô tả" value="<?= $row->MoTa ?>">
+              </div>
+              <div class="form-group">
+                <label for="hinhanh">Hình ảnh</label>
+                <input type="file" name="hinhanh" id="hinhanh" class="form-control">
+                <img src="/uploads/<?=$row->HinhAnh?>" alt="" height="100">
               </div>
             </div><!-- /.box-body -->
 

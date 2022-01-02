@@ -26,7 +26,7 @@
             <h3 class="box-title">Tạo mới sản phẩm</h3>
           </div><!-- /.box-header -->
           <!-- form start -->
-          <form role="form" action="/admin/taosanpham" method="post">
+          <form role="form" action="/admin/taosanpham" method="post" enctype="multipart/form-data">
             <div class="box-body">
               <div class="form-group">
                 <label for="id_cat">ID danh mục</label>
@@ -43,6 +43,10 @@
               <div class="form-group">
                 <label for="mota">Mô tả</label>
                 <input type="text" class="form-control" name="mota" id="mota" placeholder="Mô tả">
+              </div>
+              <div class="form-group">
+                <label for="hinhanh">Hình ảnh</label>
+                <input type="file" name="hinhanh" id="hinhanh" class="form-control">
               </div>
             </div><!-- /.box-body -->
 
