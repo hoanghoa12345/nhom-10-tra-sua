@@ -10,7 +10,16 @@ class Admin extends BaseController
   {
     session()->remove('active_menu');
     session()->set('active_menu', 1);
-    return view('admin/index');
+    $products = $this->db->from('SanPham')->select('*')->getAll();
+    $totalProduct = count($products);
+
+    $categories = $this->db->from('DanhMuc')->select('*')->getAll();
+    $totalCategories = count($categories);
+
+    return view('admin/index', [
+      'totalProduct' => $totalProduct,
+      'totalCategories' => $totalCategories
+    ]);
   }
 
   public function sanpham()
@@ -131,12 +140,52 @@ class Admin extends BaseController
   {
     session()->remove('active_menu');
     session()->set('active_menu', 4);
-    return view('admin/index');
+    $rows = $this->db->from('HoaDon')->select('id,idHoadon,NgayNhap,SoLuong,TongSoTien')->getAll();
+    return view('admin/donhang', ["rows" => $rows]);
+  }
+
+  public function nhaphoadon()
+  {
+    if ($this->request->getMethod() == 'post') {
+      $products = $this->request->getVar('sanpham');
+      $qtys = $this->request->getVar('soluong');
+      $prices = $this->request->getVar('dongia');
+
+      $totalPrice = 0;
+      $currentDate = new \DateTime();
+      $idHoadon = uniqid();
+
+      foreach ($products as $product_id) {
+        $key = $product_id - 1;
+        $this->db->in('ChiTietHoaDon')->insert([
+        'id' => $this->db->lastId() ? $this->db->lastId() + 1 : 1,
+        'id_hoaDon' => $idHoadon,
+        'id_sanPham' => $product_id,
+        'SoLuong' => $qtys[$key],
+        'DonGia' => $prices[$key],
+      ]);
+      $totalPrice += (int) $prices[$key] * (int) $qtys[$key];
+        //echo 'ID: ' . $product_id . "Số lượng: " . $qtys[$key] . "Giá: " . $prices[$key] . "//";
+      }
+
+      $this->db->in('HoaDon')->insert([
+        'id' => $this->db->lastId() ? $this->db->lastId() + 1 : 1,
+        'idHoadon' => $idHoadon,
+        'NgayNhap' => $currentDate->format('Y-m-d H:i:s'),
+        'SoLuong' => count($products),
+        'TongSoTien' => $totalPrice
+      ]);
+
+      return redirect()->to(base_url('admin/donhang'));
+    } else {
+      $rows = $this->db->from('SanPham')->select('id,TenSanPham,Gia')->getAll();
+      return view('admin/nhaphoadon', ["rows" => $rows]);
+    }
   }
 
   public function profile()
   {
-    return 'profile';
+    echo 'profile';
   }
   public function logout()
   {

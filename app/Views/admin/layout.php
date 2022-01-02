@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>AdminLTE | Dashboard</title>
+  <title>Quản lý quán trà sữa</title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <!-- bootstrap 3.0.2 -->
   <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -77,7 +77,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
+            <img src="/img/avatar5.png" class="img-circle" alt="User Image" />
           </div>
           <div class="pull-left info">
             <p>Hello, <?php echo session('name') ?></p>

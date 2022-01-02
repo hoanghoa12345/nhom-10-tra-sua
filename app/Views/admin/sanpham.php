@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Sản phầm
+            Sản phẩm
             <small>Quản lý sản phẩm</small>
         </h1>
         <ol class="breadcrumb">
