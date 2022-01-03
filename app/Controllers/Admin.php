@@ -31,7 +31,7 @@ class Admin extends BaseController
     $dm = $this->db->from('DanhMuc')->select('id,TenDanhMuc,MoTa')->getAll();
     session()->remove('active_menu');
     session()->set('active_menu', 2);
-    $rows = $this->db->from('SanPham')->select('id,id_cat,TenSanPham,Gia,MoTa,HinhAnh')->getAll();
+    $rows = $this->db->from('SanPham')->select('id,id_cat,TenSanPham,Gia,MoTa,HinhAnh')->orderBy('id_cat', 'asc')->getAll();
     return view('admin/sanpham', ["rows" => $rows, "ds" => $dm]);
   }
   public function taosanpham()
@@ -57,9 +57,9 @@ class Admin extends BaseController
   }
   public function suasanpham($id)
   {
-    $this->db->from('SanPham')->select('id, id_cat,TenSanPham,Gia, MoTa, HinhAnh')->where('id', $id);
+    $dm = $this->db->from('DanhMuc')->select('id,TenDanhMuc,MoTa')->getAll();
+    $row = $this->db->from('SanPham')->select('id, id_cat,TenSanPham,Gia, MoTa, HinhAnh')->where('id', $id)->getRow();
 
-    $row = $this->db->getRow();
     if ($this->request->getMethod() == 'post') {
       $img = $this->request->getFile('hinhanh');
       $input = $this->validate([
@@ -91,11 +91,10 @@ class Admin extends BaseController
           ->update();
       }
 
-
-
       return redirect()->to(base_url('admin/sanpham'));
     }
-    return view('admin/suasanpham', ['row' => $row]);
+    
+    return view('admin/suasanpham', ['row' => $row,"ds" => $dm, "cat_id" => $row->id_cat]);
   }
   public function xoasanpham($id)
   {

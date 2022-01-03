@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<database xsi:noNamespaceSchemaLocation="QLTS.xsd"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="QLTS.xsd">
     <Role>
         <row>
             <id>1</id>
@@ -276,7 +275,7 @@
             <MoTa>Yakult đào đá xay (O.O)</MoTa>
             <HinhAnh>Yakult-da-xay-2.png</HinhAnh>
         </row>
-    </SanPham>
+    <row><id>26</id><id_cat>1</id_cat><TenSanPham>Trà sữa đậm đà</TenSanPham><Gia>10000</Gia><MoTa>Đắng nghét :)))))))))))))</MoTa><HinhAnh>Chocolate-da-xay_1.png</HinhAnh></row></SanPham>
     <DanhMuc>
         <row>
             <id>1</id>
