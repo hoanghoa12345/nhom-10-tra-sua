@@ -14,7 +14,13 @@ class Home extends BaseController
     {
         //return view('welcome_message');
         //echo 'Database file permissions: ' . xmlDb::getDatabasePerms('database');
-        echo 'Id User = '.session()->get('id') . 'Role = ' . session('role');
+        //echo 'Id User = '.session()->get('id') . 'Role = ' . session('role');
+        $dm = $this->db->from('DanhMuc')->select('id,TenDanhMuc,MoTa')->getAll();
+        $sp = $this->db->from('SanPham')->select('id,id_cat,TenSanPham,Gia,MoTa,HinhAnh')->getAll();
+        return view('index', [
+            "sp" => $sp,
+            "dm" => $dm,
+        ]);
     }
     /**
      * Lấy toàn bộ các bảng
