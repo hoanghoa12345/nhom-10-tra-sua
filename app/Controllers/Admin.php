@@ -150,6 +150,7 @@ class Admin extends BaseController
       $products = $this->request->getVar('sanpham');
       $qtys = $this->request->getVar('soluong');
       $prices = $this->request->getVar('dongia');
+      $sizes = $this->request->getVar('size');
 
       $totalPrice = 0;
       $currentDate = new \DateTime();
@@ -163,6 +164,7 @@ class Admin extends BaseController
         'id_sanPham' => $product_id,
         'SoLuong' => $qtys[$key],
         'DonGia' => $prices[$key],
+        'Size' => $sizes[$key]
       ]);
       $totalPrice += (int) $prices[$key] * (int) $qtys[$key];
         //echo 'ID: ' . $product_id . "Số lượng: " . $qtys[$key] . "Giá: " . $prices[$key] . "//";
@@ -173,7 +175,8 @@ class Admin extends BaseController
         'idHoadon' => $idHoadon,
         'NgayNhap' => $currentDate->format('Y-m-d H:i:s'),
         'SoLuong' => count($products),
-        'TongSoTien' => $totalPrice
+        'TongSoTien' => $totalPrice,
+        'NguoiNhap' => session('name')
       ]);
 
       return redirect()->to(base_url('admin/donhang'));

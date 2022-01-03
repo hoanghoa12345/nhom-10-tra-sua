@@ -31,6 +31,7 @@
                 <th>Tên sản phẩm</th>
                 <th>Giá</th>
                 <th>Số lượng</th>
+                <th>Size</th>
               </tr>
 
               <?php foreach ($rows as $row) : ?>
@@ -44,10 +45,17 @@
                   </td>
                   <td><?= $row->id ?></td>
                   <td><?= $row->TenSanPham ?></td>
-                  <td><?= $row->Gia ?><input type="hidden" class="form-control" name="dongia[]" value="<?= $row->Gia ?>"/></td>
-                  <td class="row">
-                    <div class="col-xs-2">
-                      <input type="text" class="form-control" name="soluong[]" placeholder="1" value="1">
+                  <td><?= $row->Gia ?><input type="hidden" class="form-control" name="dongia[]" value="<?= $row->Gia ?>" /></td>
+                  <td>
+                      <input type="text" class="form-control" name="soluong[]" placeholder="1" value="1" style="width: 100px;">
+                  </td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control" name="size[]" id="size" style="width: 100px;">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                      </select>
                     </div>
                   </td>
                 </tr>
