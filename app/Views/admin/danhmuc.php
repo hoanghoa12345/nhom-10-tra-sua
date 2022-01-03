@@ -10,7 +10,7 @@
             <small>Quản lý danh mục</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Danh mục</li>
         </ol>
     </section>
