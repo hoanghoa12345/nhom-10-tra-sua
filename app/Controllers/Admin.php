@@ -16,9 +16,13 @@ class Admin extends BaseController
     $categories = $this->db->from('DanhMuc')->select('*')->getAll();
     $totalCategories = count($categories);
 
+    $orders = $this->db->from('HoaDon')->select('*')->getAll();
+    $totalOrder = count($orders);
+
     return view('admin/index', [
       'totalProduct' => $totalProduct,
-      'totalCategories' => $totalCategories
+      'totalCategories' => $totalCategories,
+      'totalOrder' => $totalOrder
     ]);
   }
 

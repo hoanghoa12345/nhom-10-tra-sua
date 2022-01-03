@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="database">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Role">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="row">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id" type="xs:unsignedByte" />
+                    <xs:element name="Ten" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HoaDon">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="row">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id" type="xs:unsignedInt" />
+                    <xs:element name="idHoadon" type="xs:string" />
+                    <xs:element name="NgayNhap" type="xs:string" />
+                    <xs:element name="SoLuong" type="xs:unsignedInt" />
+                    <xs:element name="TongSoTien" type="xs:unsignedInt" />
+                    <xs:element name="NguoiNhap" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ChiTietHoaDon">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="row">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id" type="xs:unsignedInt" />
+                    <xs:element name="id_hoaDon" type="xs:string" />
+                    <xs:element name="id_sanPham" type="xs:unsignedInt" />
+                    <xs:element name="SoLuong" type="xs:unsignedInt" />
+                    <xs:element name="DonGia" type="xs:unsignedInt" />
+                    <xs:element name="Size" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SanPham">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="row">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id" type="xs:unsignedInt" />
+                    <xs:element name="id_cat" type="xs:unsignedByte" />
+                    <xs:element name="TenSanPham" type="xs:string" />
+                    <xs:element name="Gia" type="xs:unsignedInt" />
+                    <xs:element name="MoTa" type="xs:string" />
+                    <xs:element name="HinhAnh" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DanhMuc">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="row">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id" type="xs:unsignedByte" />
+                    <xs:element name="TenDanhMuc" type="xs:string" />
+                    <xs:element name="MoTa" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TaiKhoan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="row">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id" type="xs:unsignedByte" />
+                    <xs:element name="UserName" type="xs:string" />
+                    <xs:element name="PassWord" type="xs:string" />
+                    <xs:element name="Ten" type="xs:string" />
+                    <xs:element name="Email" type="xs:string" />
+                    <xs:element name="DiaChi" type="xs:string" />
+                    <xs:element name="DienThoai" type="xs:string" />
+                    <xs:element name="id_role" type="xs:unsignedByte" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
