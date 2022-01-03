@@ -29,8 +29,18 @@
           <form role="form" action="/admin/taosanpham" method="post" enctype="multipart/form-data">
             <div class="box-body">
               <div class="form-group">
-                <label for="id_cat">ID danh mục</label>
-                <input type="text" class="form-control" name="id_cat" id="id_cat" placeholder="Nhập tên ID danh mục">
+                <label for="id_cat">Danh mục</label>
+                <div class="form-group">
+                  <select name="id_cat" class="form-control">
+                    <?php
+                      foreach($ds as $dd){
+                    ?>
+                      <option value="<?php echo $dd->id; ?>"><?php echo $dd->TenDanhMuc; ?></option>
+                    <?php 
+                      }
+                    ?>
+                  </select>
+                </div>
               </div>
               <div class="form-group">
                 <label for="tensanpham">Tên sản phẩm</label>

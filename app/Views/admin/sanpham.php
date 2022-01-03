@@ -30,7 +30,7 @@
                         <table class="table table-hover">
                             <tr>
                                 <th>ID</th>
-                                <th>ID Danh mục</th>
+                                <th>Danh mục</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Giá (VND)</th>
                                 <th>Mô tả</th>
@@ -42,11 +42,21 @@
                                 <?php foreach ($rows as $row) : ?>
                                     <tr>
                                         <td><?= $row->id ?></td>
-                                        <td><?= $row->id_cat ?></td>
+                                        <?php foreach ($ds as $dd) {
+
+                                        ?>
+                                                <?php if ($dd->id == $row->id_cat) {
+                                                ?>
+                                                    <td><?php echo $dd->TenDanhMuc; ?></td>
+                                                <?php
+                                                } ?>
+                                        <?php
+                                        }
+                                        ?>
                                         <td><?= $row->TenSanPham ?></td>
                                         <td><?= $row->Gia ?></td>
                                         <td><?= $row->MoTa ?></td>
-                                        <td><img src="/uploads/<?=$row->HinhAnh?>" alt="" height="100"></td>
+                                        <td><img src="/uploads/<?= $row->HinhAnh ?>" alt="" height="100"></td>
                                         <td>
                                             <div class="btn-group"><button class="btn btn-warning" onclick="window.location.replace('/admin/suasanpham/<?= $row->id ?>');"><i class="fa fa-pencil"></i></button></div>
                                             <div class="btn-group"><button class="btn btn-danger" data-toggle="modal" data-target="#delModal"><i class="fa fa-trash-o"></i></button></div>

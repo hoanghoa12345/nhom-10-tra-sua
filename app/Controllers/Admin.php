@@ -28,13 +28,15 @@ class Admin extends BaseController
 
   public function sanpham()
   {
+    $dm = $this->db->from('DanhMuc')->select('id,TenDanhMuc,MoTa')->getAll();
     session()->remove('active_menu');
     session()->set('active_menu', 2);
     $rows = $this->db->from('SanPham')->select('id,id_cat,TenSanPham,Gia,MoTa,HinhAnh')->getAll();
-    return view('admin/sanpham', ["rows" => $rows]);
+    return view('admin/sanpham', ["rows" => $rows, "ds" => $dm]);
   }
   public function taosanpham()
   {
+    $dm = $this->db->from('DanhMuc')->select('id,TenDanhMuc,MoTa')->getAll();
     if ($this->request->getMethod() == 'post') {
 
       $img = $this->request->getFile('hinhanh');
@@ -49,7 +51,9 @@ class Admin extends BaseController
         'HinhAnh' => $img->getName()
       ]);
     }
-    return view('admin/taosanpham');
+    return view('admin/taosanpham', [
+      "ds" =>  $dm,
+    ]);
   }
   public function suasanpham($id)
   {
