@@ -38,7 +38,7 @@
               </div>
               <div class="form-group">
                 <label for="gia">Giá</label>
-                <input type="text" class="form-control" name="gia" id="gia" placeholder="Nhập tên danh mục">
+                <input type="text" class="form-control" name="gia" id="gia" placeholder="Nhập giá">
               </div>
               <div class="form-group">
                 <label for="mota">Mô tả</label>

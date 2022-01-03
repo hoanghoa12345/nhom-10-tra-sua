@@ -32,7 +32,7 @@
                                 <th>ID</th>
                                 <th>ID Danh mục</th>
                                 <th>Tên sản phẩm</th>
-                                <th>Giá</th>
+                                <th>Giá (VND)</th>
                                 <th>Mô tả</th>
                                 <th>Hình ảnh</th>
                                 <th>Thao tác</th>
