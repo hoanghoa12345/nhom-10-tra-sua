@@ -1,47 +1,51 @@
-# CodeIgniter 4 Framework
+# Tìm hiểu XML và ứng dụng xây dựng hệ thống quản lý quán trà sữa
 
-## What is CodeIgniter?
+## Giới thiệu
+-	Xây dựng hệ thống quản lý quán trà sữa với giao diện web cho phép sử dụng trên nhiều nền tảng.
+-	Ứng dụng XML để xây dựng cơ sở dữ liệu với chức năng thêm, sửa, xóa thông tin.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/44923253/151947997-66ba7091-f7ab-4ac4-aac9-a381d4727d18.png" alt="Trang quản lý"/>
+</p>
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+## Công cụ sử dụng
 
-This repository holds the distributable version of the framework,
-including the user guide. It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
-
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
-
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+* [CodeIgniter](http://codeigniter.com)
+* [XmlDB](https://github.com/alaca/xmldb)
 
 
-## Important Change with index.php
+## Các chức năng chính
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+- Yêu cầu chức năng
+  - Đăng kí tài khoản
+  - Đăng nhập
+  - Hiển thị sản phẩm
+  - Thêm, xóa, sửa danh mục
+  - Thêm, xóa, sửa sản phẩm
+  - Thêm, xóa, sửa đơn hàng
+- Yêu cầu phi chức năng
+  - Bảo đảm an toàn thông tin đăng ký của người dùng.
+  - Giao diện, bố cục trang web thân thiện, hợp lý, dễ sử dụng với người dùng.
+  - Tốc độ xử lý nhanh, chính xác, ít tốn thời gian.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+## Chức năng quản lý hệ thống
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Chức năng đăng nhập:
 
-## Repository Management
+![image](https://user-images.githubusercontent.com/44923253/151949119-8db102d0-6f8b-4e7a-93b7-97ddfd3bf804.png)
 
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Chức năng hiễn thị sản phẩm:
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+![image](https://user-images.githubusercontent.com/44923253/151949187-430c5dcb-f91f-46a4-93b7-880acbd68720.png)
 
-## Contributing
+Chức năng thêm sản phẩm:
 
-We welcome contributions from the community.
+![image](https://user-images.githubusercontent.com/44923253/151949262-83b7139b-ae5f-45db-80f8-a92e869284e7.png)
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+## Danh sách thực đơn
 
-## Server Requirements
+![image](https://user-images.githubusercontent.com/44923253/151949477-7426c262-1649-48a3-b30f-5756e1a2eedd.png)
+
+## Yêu cầu hệ thống
 
 PHP version 7.3 or higher is required, with the following extensions installed:
 
